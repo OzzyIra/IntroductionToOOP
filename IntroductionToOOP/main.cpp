@@ -25,14 +25,14 @@ public:
 		this->y = y;
 	}
 
-	//double distance(double x, double y)
-	//{
-	//	double S;
-	//	S = sqrt( (this->x * x) + (this->y * y));
-	//	//S = sqrt( (A.get_x() * A.get_x()) + (A.get_y() * A.get_y()));
-	//	//S = sqrt( (A.x * A.x) + (A.y * A.y));
-	//	return S;
-	//}
+	double distance Point A)const
+	{
+		double S;
+		S = sqrt( (this->x * x) + (this->y * y));
+		//S = sqrt( (A.get_x() * A.get_x()) + (A.get_y() * A.get_y()));
+		//S = sqrt( (A.x * A.x) + (A.y * A.y));
+		return S;
+	}
 
 };
 void distance(Point A, Point B)
@@ -66,13 +66,13 @@ void main()
 	Point B;
 	B.set_x(5.25);
 	B.set_y(12.9);
-	Point D;
+	/*Point D;
 	D.set_x(16.16);
 	D.set_y(9.25);
 	Point C;
 	C.set_x(4.25);
-	C.set_y(25.16);
-	double S = 0;
+	C.set_y(25.16);*/
+	//double S = 0;
 	cout << A.get_x() << "\t" << A.get_y() << endl;
 	
 	//distance(B.get_x(), B.get_y());
