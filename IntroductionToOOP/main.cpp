@@ -27,8 +27,10 @@ public:
 
 	double distance (Point A)const
 	{
+		
 		double S;
-		S = sqrt( (this->x * x) + (this->y * y));
+		S = sqrt((x * x) + (y * y));
+		//S = sqrt( (this->x * x) + (this->y * y));
 		//S = sqrt( (A.get_x() * A.get_x()) + (A.get_y() * A.get_y()));
 		//S = sqrt( (A.x * A.x) + (A.y * A.y));
 		return S;
