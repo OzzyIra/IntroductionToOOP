@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+#include<cmath>
 
 class Point
 {
@@ -23,7 +24,25 @@ public:
 	{
 		this->y = y;
 	}
+
+	//double distance(double x, double y)
+	//{
+	//	double S;
+	//	S = sqrt( (this->x * x) + (this->y * y));
+	//	//S = sqrt( (A.get_x() * A.get_x()) + (A.get_y() * A.get_y()));
+	//	//S = sqrt( (A.x * A.x) + (A.y * A.y));
+	//	return S;
+	//}
+
 };
+void distance(Point A, Point B)
+{
+	double AB = 0;
+	//AB = sqrt((pow(2, (B.get_x() - A.get_x()))) + (pow(2, (B.get_y() - A.get_y()))));
+	AB = sqrt(((B.get_x() - A.get_x()) * (B.get_x() - A.get_x())) + ((B.get_y() - A.get_y()) * (B.get_y() - A.get_y())));	
+	cout<< AB;
+}
+
 
 //#define STRUCT_POINT
 
@@ -42,8 +61,22 @@ void main()
 
 #endif // STRUCT_POINT
 	Point A;
-	A.set_x(2);
-	A.set_y(3);
+	A.set_x(2.16);
+	A.set_y(3.25);
+	Point B;
+	B.set_x(5.25);
+	B.set_y(12.9);
+	Point D;
+	D.set_x(16.16);
+	D.set_y(9.25);
+	Point C;
+	C.set_x(4.25);
+	C.set_y(25.16);
+	double S = 0;
 	cout << A.get_x() << "\t" << A.get_y() << endl;
 	
+	//distance(B.get_x(), B.get_y());
+
+	cout << "Расстояние до точки B = ";
+	distance(A, B);
 }
