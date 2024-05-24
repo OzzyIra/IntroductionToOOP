@@ -25,7 +25,7 @@ public:
 		this->y = y;
 	}
 
-	double distance Point A)const
+	double distance (Point A)const
 	{
 		double S;
 		S = sqrt( (this->x * x) + (this->y * y));
