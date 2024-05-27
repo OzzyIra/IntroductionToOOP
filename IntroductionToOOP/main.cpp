@@ -84,7 +84,7 @@ double distance(const Point& A,const Point& B)
 //#define STRUCT_POINT
 //#define DISTANCE_CHACK
 //#define CONSTRUCTORS_CHACK
-//#define Assigman
+//#define ASSIGNMENT_CHACK
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -139,7 +139,7 @@ void main()
 	D.print();
 #endif // CONSTRUCTORS_CHACK
 
-#ifdef DEBUG
+#ifdef ASSIGNMENT_CHACK
 	//Point A(2, 3);
 	//Point B;	//
 	//B = A;
@@ -154,6 +154,6 @@ void main()
 	A.print();
 	B.print();
 	C.print();
-#endif // DEBUG
+#endif //  define ASSIGNMENT_CHACK
 
 }
