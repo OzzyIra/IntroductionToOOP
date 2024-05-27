@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+#define delimeter "\n"
+
 class Point
 {
 	double x;
@@ -50,29 +52,39 @@ public:
 	{
 		cout << "Destructor:\t" << this << endl;
 	}
+	//		Operators
+	Point& operator=(const Point& other)
+	{
+		this->x = other.x;
+		this->y = other.y;
+		cout << "CopyAssignment:\t\t" << this << endl;
+		return *this;
+	}
 	//		Methods:
-	double distance (Point other)const
+	double distance (const Point& other)const
 	{
 		
 		double x_distance = this->x - other.x;
 		double y_distance = this->y - other.y;
 		double distance = sqrt(x_distance * x_distance + y_distance * y_distance);
+		
 		return distance;
 	}
 	void print()const
 	{
-		cout << "X = " << x << "\tY = " << y << endl;
+		cout << this << ":X = " << x << "\tY = " << y << endl;
 	}
 };
-double distance(Point A, Point B)
+double distance(const Point& A,const Point& B)
 {
 	double x_distance = A.get_x() - B.get_x();
 	double y_distance = A.get_y() - B.get_y();
 	return sqrt(x_distance * x_distance + y_distance * y_distance);
 }
 //#define STRUCT_POINT
-#define DISTANCE_CHACK
+//#define DISTANCE_CHACK
 //#define CONSTRUCTORS_CHACK
+//#define Assigman
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -91,11 +103,11 @@ void main()
 	A.set_x(2);
 	A.set_y(3);
 	cout << A.get_x() << "\t" << A.get_y() << endl;
-
 	Point B;
 	B.set_x(7);
 	B.set_y(8);
 	cout << B.get_x() << "\t" << B.get_y() << endl;
+	cout << delimeter << endl;
 
 	/*Point D;
 	D.set_x(16.16);
@@ -106,8 +118,13 @@ void main()
 
 	//distance(B.get_x(), B.get_y());
 	cout << "Расстояние от точки 'A' до точки 'B':" << A.distance(B) << endl;
+	cout << delimeter << endl;
 	cout << "Расстояние от точки 'B' до точки 'A':" << B.distance(A) << endl;
-	cout << distance(A, B);
+	cout << delimeter << endl;
+	cout<<"Расстояние между точками 'A' и 'B': "<< distance(A, B)<<endl;
+	cout << delimeter << endl;
+	cout << "Расстояние между точками 'B' и 'A': " << distance(A, B) << endl;
+	cout << delimeter << endl;
 #endif // DISTANCE_CHACK
 
 #ifdef CONSTRUCTORS_CHACK
@@ -122,6 +139,21 @@ void main()
 	D.print();
 #endif // CONSTRUCTORS_CHACK
 
-	
-	
+#ifdef DEBUG
+	//Point A(2, 3);
+	//Point B;	//
+	//B = A;
+	//B.print();
+	int a, b, c;
+	a = b = c = 0;
+	cout << a << "\t" << b << "\t" << c << endl;
+	Point A, B, C;
+	cout << delimeter << endl;
+	A = B = C = Point(2, 3);
+	cout << delimeter << endl;
+	A.print();
+	B.print();
+	C.print();
+#endif // DEBUG
+
 }
