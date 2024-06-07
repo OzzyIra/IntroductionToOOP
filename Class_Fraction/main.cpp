@@ -49,7 +49,7 @@ public:
 
 	}
 
-	Fraction(int integer)
+	explicit Fraction(int integer)
 	{
 		this->integer = integer;
 		this->numerator = 0;
@@ -84,6 +84,11 @@ public:
 	~Fraction()
 	{
 		cout << "Destructor:\t\t\t" << this << endl;
+	}
+
+	explicit operator int()
+	{
+		return integer;
 	}
 	//		operators
 	Fraction& operator=(const Fraction& other)
@@ -331,7 +336,9 @@ std::istream& operator>>(std::istream& in, Fraction& obj)
 //#define CONSTRUCTORS_CHACK
 //#define ARITHMETICAL_OPERATORS_CHECK
 //#define COMPARISON_OPERATORS_CHECK
-#define STREAM_CHECK
+//#define STREAM_CHECK
+//#define CONVERSIONS_FROM_OTHER_TO_CLASS
+#define CONVERSIONS_FROM_CLASS_TO_OTHER
 void main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -412,5 +419,9 @@ void main()
 
 #endif // STREAM_CHECK
 
+	/*Fraction A(2, 3, 4);
+	cout << A << endl;
+	double a = A;
+	cout << a << endl;*/
 
 }
