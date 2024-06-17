@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
 
 using namespace std;
 
@@ -102,11 +103,6 @@ public:
 
 	Fraction& operator*=(Fraction other)
 	{
-		/*this->to_improper();
-		other.to_improper();
-		this->numerator = this->numerator * other.numerator;
-		this->denominator = this->denominator * other.denominator;
-		this->to_proper();*/
 		return *this = *this * other;
 	}
 
@@ -316,7 +312,18 @@ std::ostream& operator<<(std::ostream& os, const Fraction& obj)
 }
 std::istream& operator>>(std::istream& in, Fraction& obj)
 {
-	int integer, numerator, denominator;
+	const int SIZE = 64;
+	char buffer[SIZE]{};
+	in.getline(buffer, SIZE);
+	int number[3];
+	int n = 0;
+	const char delimeters[]="(/) +";
+	for (char* pch = strtok(buffer, delimeters); pch; pch = strtok(NULL, delimeters))
+		number[n++] = atoi(pch);
+
+	for (int i = 0; i < n; i++)
+		//cout << number[i] << "\t"; cout << endl;
+	/*integer, numerator, denominator;
 	cout << "Введите целую часть дроби= ";
 	in >> integer;
 
@@ -328,7 +335,15 @@ std::istream& operator>>(std::istream& in, Fraction& obj)
 
 	obj.set_integer(integer);
 	obj.set_numerator(numerator);
-	obj.set_denominator(denominator);
+	obj.set_denominator(denominator);*/
+		switch (n)
+		{
+		case 1: obj = Fraction(number[0]); break;
+		case 2: obj = Fraction(number[0], number[1]); break;
+		case 3: obj = Fraction(number[0], number[1], number[2]); break;
+		default:
+			break;
+		}
 
 	return in;
 }
@@ -338,7 +353,7 @@ std::istream& operator>>(std::istream& in, Fraction& obj)
 //#define COMPARISON_OPERATORS_CHECK
 //#define STREAM_CHECK
 //#define CONVERSIONS_FROM_OTHER_TO_CLASS
-#define CONVERSIONS_FROM_CLASS_TO_OTHER
+//#define CONVERSIONS_FROM_CLASS_TO_OTHER
 void main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -413,15 +428,12 @@ void main()
 #endif // COMPARISON_OPERATORS_CHECK
 #ifdef STREAM_CHECK
 	Fraction A;
+	cout << "Введите простую дробь"<<endl;
 	cin >> A;
-	cout << A << endl;
+	cout << A;
 
 
 #endif // STREAM_CHECK
-
-	/*Fraction A(2, 3, 4);
-	cout << A << endl;
-	double a = A;
-	cout << a << endl;*/
-
+	
+	 
 }
