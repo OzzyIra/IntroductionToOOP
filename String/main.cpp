@@ -142,7 +142,7 @@ void String::print()const
 }
 std::ostream& operator<<(std::ostream& os, const String obj)
 {
-    return os<<obj.
+    return os << obj.get_str();
 }
  String operator+(const String& left, const String& right)
 {
