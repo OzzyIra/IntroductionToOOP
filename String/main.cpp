@@ -30,38 +30,40 @@ public:
     }
 
     //      constructors:
-   explicit String(int size = 80)
+    explicit String(int size = 80) :size(size), str(new char[size]{})
     {
-        this->size = size;
-        this->str = new char[size + 1] {};
+        //this->size = size;
+        //this->str = new char[size + 1] {};
         cout << "DefaultConctructor:\t" << this << endl;
     }
-    String(const char* str)
+    String(const char* str):size(strlen(str) + 1),str(new char[size]{})
     {
-        this->size = strlen(str)+1;
-        this->str = new char[size]{};
+       // this->size = strlen(str)+1;
+       // this->str = new char[size]{};
         for (int i = 0; i < size; i++)
         {
             this->str[i] = str[i];
         }
         cout << "Constructer1\t\t" << this << endl;
     }
-    ~String()
-    {
-        delete[]this->str;
-        cout << "destructor:\t\t" << this << endl;
-    }
   
-    String(const String& other)
+    String(const String& other):size(other.size),str(new char[size]{})
     {
-        this->size = other.size;
-        this->str = new char[other.size + 1]{};
+        //this->size = other.size;
+        //this->str = new char[other.size + 1]{};
         for (int i = 0; i < size; i++)
         {
             this->str[i] = other.str[i];
         }
         cout << "CopyConstructor" << this << endl;
     }
+
+    ~String()
+    {
+        delete[]this->str;
+        cout << "destructor:\t\t" << this << endl;
+    }
+ 
     String& operator=(const String& other)
     {
         if (this == &other)return *this;
@@ -115,20 +117,48 @@ public:
     return buffer;
 }
 
+//#define CAT_CHECK
+#define CONSTRUCTORS_CHECK
 void main()
 {
     setlocale(LC_ALL, "Russian");
-  /*  String str;
+#ifdef CAT_CHECK
+    /*  String str;
     str.print();*/
     String str1 = "Hello";
     //str1.print();
     String str2 = "World";
-   // str2.print(); 
-   cout<< delimeter << endl;
+    // str2.print(); 
+    cout << delimeter << endl;
     String str3 = str1 + str2;
     str3.print();
     /*cout << str1 << endl;
     cout << str2 << endl;*/
+
+#endif // CAT_CHECK
+
+#ifdef CONSTRUCTORS_CHECK
+    String str1;
+    str1.print();
+
+    String str2(8);
+    str2.print();
+
+    String str3 = "Hello";
+    str3.print();
+
+    String str4(); // здесь не вызываетс€ конструктор и не создаетс€ объект,
+                   // в этом выражении объ€вл€етс€ функци€ str4
+                   // котора€ ничего не принимает и не возвращает объект класса String     
+   // str4.print();
+
+    String str5{};  //€вный вызов конструктора по умолчанию
+    str5.print();
+
+    String str6{ str3 };
+    str6.print();
+
+#endif // CONSTRUCTORS_CHECK
 
 
 }
