@@ -1,17 +1,15 @@
 //String
 #include"String.h"
-//конец объявления класса/class declaration end
 
-//определение класса/class definition
-
-
- //конец определения класса/class definition end
+#define delimiter "\n-----------------------------------\n"
 
 #define CAT_CHECK
 //#define CONSTRUCTORS_CHECK
+
 void main()
 {
     setlocale(LC_ALL, "Russian");
+
 #ifdef CAT_CHECK
     /*  String str;
     str.print();*/
@@ -19,7 +17,7 @@ void main()
     //str1.print();
     String str2 = "World";
     // str2.print(); 
-    cout << delimeter << endl;
+    cout << delimiter << endl;
    // String str3 = str1 + str2;
     //str3.print();
     /*cout << str1 << endl;

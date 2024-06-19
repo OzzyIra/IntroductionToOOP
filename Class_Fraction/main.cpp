@@ -351,12 +351,14 @@ std::istream& operator>>(std::istream& in, Fraction& obj)
 //#define CONSTRUCTORS_CHACK
 //#define ARITHMETICAL_OPERATORS_CHECK
 //#define COMPARISON_OPERATORS_CHECK
-//#define STREAM_CHECK
-//#define CONVERSIONS_FROM_OTHER_TO_CLASS
-//#define CONVERSIONS_FROM_CLASS_TO_OTHER
+#define STREAM_CHECK
+#define CONVERSIONS_FROM_OTHER_TO_CLASS
+#define CONVERSIONS_FROM_CLASS_TO_OTHER
+
 void main()
 {
 	setlocale(LC_ALL, "Russian");
+
 #ifdef CONSTRUCTORS_CHACK
 	//Fraction A;
 	//A.Print();
@@ -376,6 +378,7 @@ void main()
 	A.to_proper();
 	A.Print();
 #endif // CONSTRUCTORS_CHACK
+
 #ifdef ARITHMETICAL_OPERATORS_CHECK
 	Fraction A(2, 3, 4);
 	A.Print();
@@ -420,12 +423,14 @@ void main()
 	cout << "Оператор сравнения: \n";
 	cout << (A == B) << endl;
 #endif // ARITHMETICAL_OPERATORS_CHECK
+
 #ifdef COMPARISON_OPERATORS_CHECK
 
 	cout << (2 == 3) << endl;
 
 	cout << (Fraction(1, 2) > Fraction(5, 11)) << endl;
 #endif // COMPARISON_OPERATORS_CHECK
+
 #ifdef STREAM_CHECK
 	Fraction A;
 	cout << "Введите простую дробь"<<endl;
@@ -434,6 +439,5 @@ void main()
 
 
 #endif // STREAM_CHECK
-	
 	 
 }

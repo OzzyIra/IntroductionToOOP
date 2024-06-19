@@ -4,10 +4,7 @@
 using namespace std;
 
 //ќбъ€вление класса/class declaration
-std::ostream& operator<<(std::ostream& os, const String obj);
-String operator+(const String& left, const String& right);
 
-#define delimeter "---------------------------------------------"
 class String
 {
     int size; //размер строки в байтах
@@ -30,3 +27,5 @@ public:
     String& operator=(const String& other);
     void print()const;
 };
+std::ostream& operator<<(std::ostream& os, const String& obj);
+String operator+(const String& left, const String& right);

@@ -64,7 +64,7 @@ void String::print()const
     cout << "Addr:\t" << &str << "\t";
     cout << "Str:\t" << str << endl;
 }
-std::ostream& operator<<(std::ostream& os, const String obj)
+std::ostream& operator<<(std::ostream& os, const String& obj)
 {
     return os << obj.get_str();
 }
